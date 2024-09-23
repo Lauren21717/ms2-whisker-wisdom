@@ -17,6 +17,31 @@ body {
     background-color: #de582b !important;
 }
 
+/* intro.html */
 .intro-text {
     background-color: #EB8F6F;
+}
+
+/* quiz.html */
+.quiz-container {
+    color: #41204D;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-title {
+    background: #FFCDAB;
+}
+
+.answer-list {
+    cursor: pointer;
+}
+
+.custom-list-item {
+    background-color: #FFB27E;
+    border: none;
+}
+
+.cat-image {
+    width: 18%;
 }
