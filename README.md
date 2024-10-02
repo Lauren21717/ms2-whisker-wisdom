@@ -362,3 +362,5 @@ You can now work on your own copy of the repository, make changes, and propose i
 
 - [Pinterest](https://www.pinterest.co.uk/) - Images for the hero section.
 - [ChatGPT](https://chatgpt.com/) - Content assistance.
+- [Jest](https://jestjs.io/) - A delightful JavaScript testing framework.
+- [Babel](https://babeljs.io/) - A JavaScript compiler to convert modern JavaScript into backwards-compatible code.

@@ -3,13 +3,12 @@ import { quizData } from './data.js';
 const indexButton = document.getElementById('indexButton');
 const introButton = document.getElementById('introButton');
 const questionTitle = document.getElementById('questionTitle');
+const questionIndex = document.getElementById('questionIndex');
 const questionText = document.getElementById('questionText');
 const answerList = document.getElementById('answerList');
 const nextButton = document.getElementById('nextButton');
 const progressText = document.getElementById('progressText');
 
-let currentQuestion = 0;
-let score = 0;
 
 // Function to navigate from index to intro page
 function navigateToIntro() {
@@ -30,8 +29,57 @@ if (introButton) {
     introButton.addEventListener('click', navigateToQuiz);
 }
 
+let currentQuestionNo = 0;
+let score = 0;
+
+// Function to initialise the quiz
+function startQuiz() {
+    currentQuestionNo = 0;
+    score = 0;
+    showQuestion();
+}
+
+// Function to show the current question
+function showQuestion() {
+    let currentQuestion = quizData[currentQuestionNo];
+    questionIndex.innerHTML = currentQuestion + 1;
+    questionText.innerHTML = currentQuestion.question;
+
+    currentQuestion.answers.forEach(answer => {
+        const li = document.createElement("li");
+        li.innerHTML = answer.text;
+        li.classList.add("list-group-item", "custom-list-item", "mb-4", "rounded", "py-4");
+        answerList.appendChild(li);
+    });
+    console.log("success");
+}
+
+// Function to reset the state between questions
+function resetState() {
+
+}
+
+// Function to handle answer selection
+function selectAnswer(e) {
+
+}
+
+// Function to show next question or end the quiz
+function nextQuestion() {
+
+}
+
+// Function to update the progress text
+function updateProgressText() {
+}
+
+startQuiz();
+
 // Module exports for jest testing
 export {
     navigateToIntro,
     navigateToQuiz,
+    showQuestion,
+    resetState,
+    selectAnswer,
 };

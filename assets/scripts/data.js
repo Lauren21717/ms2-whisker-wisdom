@@ -1,82 +1,92 @@
 export const quizData = [
     {
         question: "Which sense do cats not taste?",
-        option1: "Sour",
-        option2: "Sweetness",
-        option3: "Bitterness",
-        option4: "Saltiness",
-        answer: "Sweetness",
+        answers: [
+            { text: "Sour", correct: false },
+            { text: "Sweetness", correct: true },
+            { text: "Bitterness", correct: false },
+            { text: "Saltiness", correct: false }
+        ]
     },
     {
         question: "What does it mean when a cat sticks its butt in your face?",
-        option1: "They are angry",
-        option2: "They want food",
-        option3: "It's a gesture of friendship",
-        option4: "They want to play",
-        answer: "It's a gesture of friendship",
+        answers: [
+            { text: "They are angry", correct: false },
+            { text: "They want food", correct: false },
+            { text: "It's a gesture of friendship", correct: true },
+            { text: "They want to play", correct: false }
+        ]
     },
     {
         question: "Cats are nearsighted, but their night vision is:",
-        option1: "Worse than humans",
-        option2: "Nonexistent",
-        option3: "The same as humans",
-        option4: "Better than humans",
-        answer: "Better than humans",
+        answers: [
+            { text: "Worse than humans", correct: false },
+            { text: "Nonexistent", correct: false },
+            { text: "The same as humans", correct: false },
+            { text: "Better than humans", correct: true }
+        ]
     },
     {
         question: "Which bone in a cat's body is unique compared to humans?",
-        option1: "Collarbone",
-        option2: "Femur",
-        option3: "Spine",
-        option4: "Skull",
-        answer: "Collarbone",
+        answers: [
+            { text: "Collarbone", correct: true },
+            { text: "Femur", correct: false },
+            { text: "Spine", correct: false },
+            { text: "Skull", correct: false }
+        ]
     },
     {
         question: "When a cat flops over and exposes his belly, it means:",
-        option1: "He wants a belly rub",
-        option2: "He is scared",
-        option3: "He is angry",
-        option4: "He is relaxed and showing trust",
-        answer: "He is relaxed and showing trust",
+        answers: [
+            { text: "He wants a belly rub", correct: false },
+            { text: "He is scared", correct: false },
+            { text: "He is angry", correct: false },
+            { text: "He is relaxed and showing trust", correct: true }
+        ]
     },
     {
         question: "If your cat approaches you with a straight, almost vibrating tail, it means:",
-        option1: "She is scared",
-        option2: "She is annoyed",
-        option3: "She is extremely happy to see you",
-        option4: "She wants to play",
-        answer: "She is extremely happy to see you",
+        answers: [
+            { text: "She is scared", correct: false },
+            { text: "She is annoyed", correct: false },
+            { text: "She is extremely happy to see you", correct: true },
+            { text: "She wants to play", correct: false }
+        ]
     },
     {
         question: "A cat with a question-mark-shaped tail is:",
-        option1: "Asking, 'Want to play?'",
-        option2: "Feeling scared",
-        option3: "Annoyed",
-        option4: "Hungry",
-        answer: "Asking, 'Want to play?'",
+        answers: [
+            { text: "Asking, 'Want to play?'", correct: true },
+            { text: "Feeling scared", correct: false },
+            { text: "Annoyed", correct: false },
+            { text: "Hungry", correct: false }
+        ]
     },
     {
         question: "How many different vocalizations can cats have?",
-        option1: "Up to 10",
-        option2: "Up to 50",
-        option3: "Up to 100",
-        option4: "Up to 200",
-        answer: "Up to 100",
+        answers: [
+            { text: "Up to 10", correct: false },
+            { text: "Up to 50", correct: false },
+            { text: "Up to 100", correct: true },
+            { text: "Up to 200", correct: false }
+        ]
     },
     {
         question: "Who do cats develop meowing behavior for?",
-        option1: "Other cats",
-        option2: "Birds",
-        option3: "Dogs",
-        option4: "People",
-        answer: "People",
+        answers: [
+            { text: "Other cats", correct: false },
+            { text: "Birds", correct: false },
+            { text: "Dogs", correct: false },
+            { text: "People", correct: true }
+        ]
     },
     {
         question: "Which paw do male cats predominantly use?",
-        option1: "Right paw",
-        option2: "Left paw",
-        option3: "Both paws equally",
-        option4: "None of the above",
-        answer: "Left paw",
-    },
+        answers: [
+            { text: "Right paw", correct: false },
+            { text: "Left paw", correct: true },
+            { text: "Both paws equally", correct: false },
+            { text: "None of the above", correct: false }
+        ]
+    }
 ];

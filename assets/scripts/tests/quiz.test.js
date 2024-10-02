@@ -18,3 +18,4 @@ describe('Navigation Functions', () => {
     expect(window.location.href).toBe('quiz.html');
   });
 });
+
