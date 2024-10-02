@@ -41,6 +41,7 @@ function startQuiz() {
 
 // Function to show the current question
 function showQuestion() {
+    resetState();
     let currentQuestion = quizData[currentQuestionNo];
     questionIndex.innerHTML = currentQuestion + 1;
     questionText.innerHTML = currentQuestion.question;
@@ -50,18 +51,30 @@ function showQuestion() {
         li.innerHTML = answer.text;
         li.classList.add("list-group-item", "custom-list-item", "mb-4", "rounded", "py-4");
         answerList.appendChild(li);
+        if (answer.correct) {
+            li.dataset.correct = answer.correct;
+        }
+        li.addEventListener("click", selectAnswer)
     });
-    console.log("success");
 }
 
 // Function to reset the state between questions
 function resetState() {
-
+    nextButton.style.display = "none";
+    while(answerList.firstChild) {
+        answerList.removeChild(answerList.firstChild)
+    }
 }
 
 // Function to handle answer selection
 function selectAnswer(e) {
-
+    const selectedOption = e.target;
+    const isCorrect = selectedOption.dataset.correct === "true";
+    if (isCorrect) {
+        selectedOption.classList.add("bg-success");
+    } else {
+        selectedOption.classList.add("bg-danger");
+    }
 }
 
 // Function to show next question or end the quiz
