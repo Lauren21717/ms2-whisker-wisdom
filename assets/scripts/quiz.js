@@ -60,7 +60,7 @@ function showQuestion() {
 
 // Function to reset the state between questions
 function resetState() {
-    nextButton.style.display = "none";
+    nextButton.style.setProperty('display', 'none', 'important');
     while(answerList.firstChild) {
         answerList.removeChild(answerList.firstChild)
     }
@@ -72,9 +72,17 @@ function selectAnswer(e) {
     const isCorrect = selectedOption.dataset.correct === "true";
     if (isCorrect) {
         selectedOption.classList.add("bg-success");
+        score++;
     } else {
         selectedOption.classList.add("bg-danger");
     }
+    Array.from(answerList.children).forEach(option => {
+        if (option.dataset.correct === "true") {
+            option.classList.add("bg-success");
+        }
+        option.classList.add("disabled-option");
+    });
+    nextButton.style.setProperty('display', 'block', 'important');
 }
 
 // Function to show next question or end the quiz
@@ -85,6 +93,7 @@ function nextQuestion() {
 // Function to update the progress text
 function updateProgressText() {
 }
+
 
 startQuiz();
 

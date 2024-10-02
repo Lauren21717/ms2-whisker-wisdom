@@ -42,6 +42,15 @@ body {
     border: none;
 }
 
+.custom-list-item:hover {
+    background-color: #EB8F6F;
+}
+
+.custom-list-item.disabled-option {
+    cursor: no-drop;
+    pointer-events: none;
+}
+
 .cat-image {
     width: 18%;
 }
