@@ -11,6 +11,8 @@ const progressText = document.getElementById('progressText');
 const resultTitle = document.getElementById('resultTitle');
 const resultImage = document.getElementById('resultImage');
 const resultScore = document.getElementById('resultScore');
+const retryButton = document.getElementById('retryButton');
+const homeButton = document.getElementById('homeButton');
 
 let currentQuestionNo = 0;
 let score = 0;
@@ -24,6 +26,11 @@ function navigateToIntro() {
 // Function to navigate from intro to quiz page
 function navigateToQuiz() {
     window.location.href = 'quiz.html';
+}
+
+// Function to navigate back to the index page
+function navigateToHome() {
+    window.location.href = 'index.html';
 }
 
 // Add event listeners for navigation buttons
@@ -40,13 +47,14 @@ function startQuiz() {
     currentQuestionNo = 0;
     score = 0;
     showQuestion();
+    updateProgressText();
 }
 
 // Function to show the current question
 function showQuestion() {
     resetState();
     let currentQuestion = quizData[currentQuestionNo];
-    questionIndex.innerHTML = currentQuestion + 1;
+    questionIndex.innerHTML = currentQuestionNo + 1;
     questionText.innerHTML = currentQuestion.question;
 
     currentQuestion.answers.forEach(answer => {
@@ -115,10 +123,10 @@ function updateProgressText() {
 // Add event listener to the next button (for the quiz page)
 if (nextButton) {
     nextButton.addEventListener("click", () => {
-        if (currentQuestionNo < quizData.length) {
+        if (currentQuestionNo < quizData.length - 1) { 
             nextQuestion();
         } else {
-            startQuiz();
+            showResult(); 
         }
     });
 }
@@ -141,12 +149,19 @@ function displayResult() {
 // Check if we are on the result page
 if (resultTitle && resultImage && resultScore) {
     displayResult();
+    if (retryButton) {
+        retryButton.addEventListener('click', navigateToQuiz);
+    }
+    if (homeButton) {
+        homeButton.addEventListener('click', navigateToHome)
+    }
 }
 
 // Start the quiz if we are on the quiz page
 if (questionTitle && questionText && answerList) {
     startQuiz();
 }
+
 
 // Module exports for jest testing
 export {
