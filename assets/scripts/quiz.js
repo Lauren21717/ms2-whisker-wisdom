@@ -99,6 +99,7 @@ function nextQuestion() {
     currentQuestionNo++;
     if (currentQuestionNo < quizData.length) {
         showQuestion();
+        updateProgressText();
     } else {
         showResult();
     }
@@ -106,6 +107,9 @@ function nextQuestion() {
 
 // Function to update the progress text
 function updateProgressText() {
+    if (progressText) {
+        progressText.innerHTML = `${currentQuestionNo + 1} of ${totalQuestions} questions`
+    }
 }
 
 // Add event listener to the next button (for the quiz page)
@@ -120,9 +124,29 @@ if (nextButton) {
 }
 
 // Function to display the result on the result page
-function displayResult() {}
+function displayResult() {
+    let score = localStorage.getItem('quizScore') || 0;
 
-startQuiz();
+    if (score >= 5) {
+        resultTitle.innerHTML = "Good Job";
+        resultImage.src = "assets/images/pass.png";
+    } else {
+        resultTitle.innerHTML = "Fur-get About It!";
+        resultImage.src = "assets/images/fail.png";
+    }
+
+    resultScore.innerHTML = `Your score is ${score}/${totalQuestions}`;
+}
+
+// Check if we are on the result page
+if (resultTitle && resultImage && resultScore) {
+    displayResult();
+}
+
+// Start the quiz if we are on the quiz page
+if (questionTitle && questionText && answerList) {
+    startQuiz();
+}
 
 // Module exports for jest testing
 export {
@@ -131,4 +155,5 @@ export {
     showQuestion,
     resetState,
     selectAnswer,
+    updateProgressText
 };
