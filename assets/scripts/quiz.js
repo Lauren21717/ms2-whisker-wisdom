@@ -8,7 +8,13 @@ const questionText = document.getElementById('questionText');
 const answerList = document.getElementById('answerList');
 const nextButton = document.getElementById('nextButton');
 const progressText = document.getElementById('progressText');
+const resultTitle = document.getElementById('resultTitle');
+const resultImage = document.getElementById('resultImage');
+const resultScore = document.getElementById('resultScore');
 
+let currentQuestionNo = 0;
+let score = 0;
+const totalQuestions = quizData.length;
 
 // Function to navigate from index to intro page
 function navigateToIntro() {
@@ -28,9 +34,6 @@ if (indexButton) {
 if (introButton) {
     introButton.addEventListener('click', navigateToQuiz);
 }
-
-let currentQuestionNo = 0;
-let score = 0;
 
 // Function to initialise the quiz
 function startQuiz() {
@@ -61,8 +64,8 @@ function showQuestion() {
 // Function to reset the state between questions
 function resetState() {
     nextButton.style.setProperty('display', 'none', 'important');
-    while(answerList.firstChild) {
-        answerList.removeChild(answerList.firstChild)
+    while (answerList.firstChild) {
+        answerList.removeChild(answerList.firstChild);
     }
 }
 
@@ -85,15 +88,39 @@ function selectAnswer(e) {
     nextButton.style.setProperty('display', 'block', 'important');
 }
 
+// Function to show the result (pass or fail)
+function showResult() {
+    localStorage.setItem('quizScore', score);
+    window.location.href = 'result.html';
+}
+
 // Function to show next question or end the quiz
 function nextQuestion() {
-
+    currentQuestionNo++;
+    if (currentQuestionNo < quizData.length) {
+        showQuestion();
+    } else {
+        showResult();
+    }
 }
 
 // Function to update the progress text
 function updateProgressText() {
 }
 
+// Add event listener to the next button (for the quiz page)
+if (nextButton) {
+    nextButton.addEventListener("click", () => {
+        if (currentQuestionNo < quizData.length) {
+            nextQuestion();
+        } else {
+            startQuiz();
+        }
+    });
+}
+
+// Function to display the result on the result page
+function displayResult() {}
 
 startQuiz();
 
