@@ -1,6 +1,7 @@
-# [Whisker-wisdom](#)
+# [Whisker-wisdom](https://lauren21717.github.io/whisker-wisdom/)
 
-
+![Am I Responsive](documentation/mockup.png)
+[Am I Responsive](https://ui.dev/amiresponsive?url=https://lauren21717.github.io/whisker-wisdom/)
 
 **Whisker Wisdom:** Test Your *Knowlwdge*, Uncover Feline *Facts*!
 
@@ -140,9 +141,6 @@ In line with best practices, wireframes were developed for mobile, tablet, and d
 
 </details>
 
-## Features
-
-### Existing Features
 
 ## Features
 
@@ -301,6 +299,179 @@ In line with best practices, wireframes were developed for mobile, tablet, and d
 
 ## Development Story
 
+This section outlines the development process of the Quiz Application. The objective is to create an engaging platform where users can answer a series of questions, receive feedback on their performance, and navigate seamlessly between different sections of the app. The development story is organized into distinct features that were implemented to achieve this functionality.
+
+- **Setting Up Navigation Between Pages**
+
+  **Objective**: Enable users to navigate smoothly between the index, intro, quiz, and result pages.
+
+  To facilitate user navigation, I implemented functions that redirect users to different sections of the application. These functions are triggered by button clicks, providing an intuitive user experience.
+
+  ```js
+  // Function to navigate from index to intro page
+  function navigateToIntro() {
+      window.location.href = 'intro.html';
+  }
+
+  // Function to navigate from intro to quiz page
+  function navigateToQuiz() {
+      window.location.href = 'quiz.html';
+  }
+
+  // Function to navigate back to the index page
+  function navigateToHome() {
+      window.location.href = 'index.html';
+  }
+  ```
+
+- **Initializing and Managing the Quiz Flow**
+
+  **Objective**: Manage the quiz state, including current question number, score tracking, and transitioning between questions.
+
+  I developed a comprehensive quiz management system that initializes the quiz, displays questions, handles user selections, updates scores, and navigates to the result page upon completion.
+
+  ```js
+  // Function to initialise the quiz
+  function startQuiz() {
+      currentQuestionNo = 0;
+      score = 0;
+      showQuestion();
+      updateProgressText();
+  }
+
+  // Function to show the current question
+  function showQuestion() {
+      resetState();
+      let currentQuestion = quizData[currentQuestionNo];
+      questionIndex.innerHTML = currentQuestionNo + 1;
+      questionText.innerHTML = currentQuestion.question;
+
+      currentQuestion.answers.forEach(answer => {
+          const li = document.createElement("li");
+          li.innerHTML = answer.text;
+          li.classList.add("list-group-item", "custom-list-item", "mb-4", "rounded", "py-4");
+          answerList.appendChild(li);
+          if (answer.correct) {
+              li.dataset.correct = answer.correct;
+          }
+          li.addEventListener("click", selectAnswer)
+      });
+  }
+
+  // Function to reset the state between questions
+  function resetState() {
+      nextButton.style.setProperty('display', 'none', 'important');
+      while (answerList.firstChild) {
+          answerList.removeChild(answerList.firstChild);
+      }
+  }
+  ```
+
+- **Handling Answer Selection and Scoring**
+
+  **Objective**: Allow users to select answers, provide immediate feedback, and accurately track their scores.
+
+  I implemented an interactive answer selection mechanism that visually indicates correct and incorrect choices, disables further selections after an answer is chosen, and updates the user's score accordingly.
+
+  ```js
+  // Function to handle answer selection
+  function selectAnswer(e) {
+      const selectedOption = e.target;
+      const isCorrect = selectedOption.dataset.correct === "true";
+      if (isCorrect) {
+          selectedOption.classList.add("bg-success");
+          score++;
+      } else {
+          selectedOption.classList.add("bg-danger");
+      }
+      Array.from(answerList.children).forEach(option => {
+          if (option.dataset.correct === "true") {
+              option.classList.add("bg-success");
+          }
+          option.classList.add("disabled-option");
+      });
+      nextButton.style.setProperty('display', 'block', 'important');
+  }
+  ```
+
+- **Displaying Progress and Navigating Through Questions**
+
+  **Objective**: Provide users with real-time feedback on their progress through the quiz and enable them to proceed to the next question or view results upon completion.
+
+  I integrated a progress indicator that updates as users answer questions and implemented a `nextQuestion` function to handle the transition between questions or to the result page.
+
+  ```js
+  // Function to handle answer selection
+  // Function to show next question or end the quiz
+  function nextQuestion() {
+      currentQuestionNo++;
+      if (currentQuestionNo < quizData.length) {
+          showQuestion();
+          updateProgressText();
+      } else {
+          showResult();
+      }
+  }
+
+  // Function to update the progress text
+  function updateProgressText() {
+      if (progressText) {
+          progressText.innerHTML = `${currentQuestionNo + 1} of ${totalQuestions} questions`
+      }
+  }
+
+  // Add event listener to the next button (for the quiz page)
+  if (nextButton) {
+      nextButton.addEventListener("click", () => {
+          if (currentQuestionNo < quizData.length - 1) { 
+              nextQuestion();
+          } else {
+              showResult(); 
+          }
+      });
+  }
+  ```
+
+- **Result Calculation and Display**
+
+  **Objective**: Calculate the user's final score and display personalized feedback based on their performance.
+
+  I created a result display system that retrieves the user's score from `localStorage`, determines pass or fail status, and presents corresponding messages and images.
+
+  ```js
+  // Function to show the result (pass or fail)
+  function showResult() {
+      localStorage.setItem('quizScore', score);
+      window.location.href = 'result.html';
+  }
+
+  // Function to display the result on the result page
+  function displayResult() {
+      let score = localStorage.getItem('quizScore') || 0;
+
+      if (score >= 5) {
+          resultTitle.innerHTML = "Good Job";
+          resultImage.src = "assets/images/pass.png";
+      } else {
+          resultTitle.innerHTML = "Fur-get About It!";
+          resultImage.src = "assets/images/fail.png";
+      }
+
+      resultScore.innerHTML = `Your score is ${score}/${totalQuestions}`;
+  }
+
+  // Check if we are on the result page
+  if (resultTitle && resultImage && resultScore) {
+      displayResult();
+      if (retryButton) {
+          retryButton.addEventListener('click', navigateToQuiz);
+      }
+      if (homeButton) {
+          homeButton.addEventListener('click', navigateToHome)
+      }
+  }
+  ```
+
 
 ## Tools and Technologies Used
   - [Balsamiq](https://balsamiq.com/wireframes) - Used for creating wireframes.
@@ -328,11 +499,12 @@ In line with best practices, wireframes were developed for mobile, tablet, and d
 
 The site was deployed to GitHub Pages. The steps to deploy are as follows:
 
-- In the [GitHub repository](https://github.com/Lauren21717/ms2-whisker-wisdom), navigate to the Settings tab 
+- In the [GitHub repository](https://github.com/Lauren21717/whisker-wisdom
+), navigate to the Settings tab 
 - From the source section drop-down menu, select the **Main** Branch, then click "Save".
 - The page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
 
-The live link can be found [here](#)
+The live link can be found [here](https://lauren21717.github.io/whisker-wisdom/)
 
 ### Local Deployment
 
@@ -344,7 +516,7 @@ This project can be cloned or forked in order to make a local copy on your own s
 2. Click on the "Code" button and copy the URL.
 3. Open your terminal and run:
    ```bash
-   git clone https://github.com/Lauren21717/ms2-whisker-wisdom
+   git clone https://github.com/Lauren21717/whisker-wisdom
 
 #### Forking
 
@@ -352,7 +524,7 @@ By forking a GitHub repository, you create a personal copy of the original repos
 
 To fork this repository, follow these steps:
 
-1. Log in to GitHub and navigate to the [GitHub Repository](https://github.com/Lauren21717/ms2-whisker-wisdom).
+1. Log in to GitHub and navigate to the [GitHub Repository](https://github.com/Lauren21717/whisker-wisdom).
 2. At the top-right corner of the repository page, just above the "Settings" button, click the "Fork" button.
 3. After clicking the "Fork" button, a copy of the repository will be created under your GitHub account.
 
