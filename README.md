@@ -1,5 +1,9 @@
 # [Whisker-wisdom](https://lauren21717.github.io/whisker-wisdom/)
 
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/Lauren21717/whisker-wisdom)](https://github.com/Lauren21717/whisker-wisdom/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Lauren21717/whisker-wisdom)](https://github.com/Lauren21717/whisker-wisdom/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/Lauren21717/whisker-wisdom)](https://github.com/Lauren21717/whisker-wisdom)
+
 ![Am I Responsive](documentation/mockup.png)
 [Am I Responsive](https://ui.dev/amiresponsive?url=https://lauren21717.github.io/whisker-wisdom/)
 
@@ -474,20 +478,24 @@ This section outlines the development process of the Quiz Application. The objec
 
 
 ## Tools and Technologies Used
-  - [Balsamiq](https://balsamiq.com/wireframes) - Used for creating wireframes.
-  - [Figma](https://www.figma.com/) - Used for creating wireframes.
-  - [Git](https://git-scm.com) - Version control system to track code changes.
-  - [GitHub](https://github.com) - Secure online platform for code storage and collaboration.
-  - [Gitpod](https://gitpod.io) - Cloud-based IDE for development.
-  - [HTML](https://en.wikipedia.org/wiki/HTML) - Markup language for the main site content.
-  - [CSS](https://en.wikipedia.org/wiki/CSS) - Stylesheet language used for site design and layout.
-  - [Bootstrap](https://getbootstrap.com) - used as the front-end CSS framework for modern responsiveness and pre-built components.
-  - [JavaScript](https://www.javascript.com) - Programming language used for user interaction on the site.
-  - [jQuery](https://jquery.com) - JavaScript library used to simplify DOM manipulation and event handling.
-  - [Jest](https://jestjs.io/) used for JavaScript testing.
-  - [Google Fonts](https://fonts.google.com/icons) - Source for web fonts and icons used across the site.
-  - [ChatGPT](https://chat.openai.com) - AI tool used to assist in writing content.
-  - [Pinterest](https://www.pinterest.co.uk/) - Platform used to source inspiration and images.
+
+- [![Balsamiq](https://img.shields.io/badge/Balsamiq-grey?logo=barmenia&logoColor=CE0908)](https://balsamiq.com/wireframes) - Used for creating wireframes.
+- [![Figma](https://img.shields.io/badge/Figma-grey?logo=figma&logoColor=F24E1E)](https://www.figma.com/) - Used for creating wireframes and designing UI.
+- [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) - Version control system to track code changes.
+- [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) - Secure platform for online code storage and collaboration.
+- [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com) - Used for hosting the deployed front-end site.
+- [![Gitpod](https://img.shields.io/badge/Gitpod-grey?logo=gitpod&logoColor=FFAE33)](https://gitpod.io) - Cloud-based IDE for streamlined development.
+- [![HTML](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) - Markup language for structuring web content.
+- [![CSS](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) - Stylesheet language used for the site’s design and layout.
+- [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) - Front-end framework for responsive design and pre-built components.
+- [![JavaScript](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) - Programming language for implementing interactivity and user interaction on the site.
+- [![jQuery](https://img.shields.io/badge/jQuery-grey?logo=jquery&logoColor=0769AD)](https://jquery.com) - JavaScript library used to simplify DOM manipulation and event handling.
+- [![Jest](https://img.shields.io/badge/Jest-grey?logo=jest&logoColor=c21325)](https://jestjs.io/) - Testing framework for ensuring reliable JavaScript code.
+- [![Google Fonts](https://img.shields.io/badge/Google_Fonts-grey?logo=google&logoColor=4285F4)](https://fonts.google.com) - Source for web fonts used to enhance typography.
+- [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=00a67d)](https://chat.openai.com) - AI tool used to assist in content creation.
+- [![Pinterest](https://img.shields.io/badge/Pinterest-grey?logo=pinterest&logoColor=BD081C)](https://www.pinterest.co.uk/) - Platform used for design inspiration and image sourcing.
+- [![ezgif.com](https://img.shields.io/badge/ezgif.com-grey?logo=ezgif&logoColor=000000)](https://ezgif.com) - Used to convert screen recordings to GIF format.
+
 
 ## Testing
 
@@ -536,3 +544,10 @@ You can now work on your own copy of the repository, make changes, and propose i
 - [ChatGPT](https://chatgpt.com/) - Content assistance.
 - [Jest](https://jestjs.io/) - A delightful JavaScript testing framework.
 - [Babel](https://babeljs.io/) - A JavaScript compiler to convert modern JavaScript into backwards-compatible code.
+
+## Acknowledgements
+
+I would like to express my gratitude to the following:
+
+- The **Code Institute Slack community** for their moral support; it kept me going during periods of self-doubt and imposter syndrome.
+- My friends for generously dedicating their time to test the game and provide valuable feedback.

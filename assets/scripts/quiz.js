@@ -65,7 +65,7 @@ function showQuestion() {
         if (answer.correct) {
             li.dataset.correct = answer.correct;
         }
-        li.addEventListener("click", selectAnswer)
+        li.addEventListener("click", selectAnswer);
     });
 }
 
@@ -153,7 +153,7 @@ if (resultTitle && resultImage && resultScore) {
         retryButton.addEventListener('click', navigateToQuiz);
     }
     if (homeButton) {
-        homeButton.addEventListener('click', navigateToHome)
+        homeButton.addEventListener('click', navigateToHome);
     }
 }
 
