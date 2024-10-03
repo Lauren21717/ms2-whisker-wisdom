@@ -167,8 +167,5 @@ if (questionTitle && questionText && answerList) {
 export {
     navigateToIntro,
     navigateToQuiz,
-    showQuestion,
-    resetState,
-    selectAnswer,
-    updateProgressText
+    navigateToHome,
 };
